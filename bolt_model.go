@@ -456,7 +456,11 @@ func readBucket(b *bolt.Bucket) (*BoltBucket, error) {
 				bb.buckets = append(bb.buckets, *tb)
 			}
 		} else {
-			tp := BoltPair{key: string(k), val: string(v)}
+			lim := len(v)
+			if AppArgs.ReadOnly && AppArgs.NoValue && lim > 100 {
+				lim = 100
+			}
+			tp := BoltPair{key: string(k), val: string(v[:lim])}
 			tp.parent = bb
 			bb.pairs = append(bb.pairs, tp)
 		}
