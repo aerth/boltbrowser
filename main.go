@@ -97,6 +97,7 @@ func printUsage(err error) {
 	fmt.Fprintf(os.Stderr, "  -timeout=duration\n        DB file open timeout (default 1s)\n")
 	fmt.Fprintf(os.Stderr, "  -ro, -readonly   \n        Open the DB in read-only mode\n")
 	fmt.Fprintf(os.Stderr, "  -no-value        \n        Do not display a value in left pane\n")
+	os.Exit(1)
 }
 
 func main() {
