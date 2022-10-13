@@ -1,4 +1,6 @@
+//go:build windows
 // +build windows
+
 package main
 
 // Windows doesn't support process backgrounding like *nix.
